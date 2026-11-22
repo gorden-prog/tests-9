@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rick &amp; Morty Explorer | каталог персонажей</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#catalog">Перейти к каталогу</a>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="index.html"><span class="mark" aria-hidden="true"></span> Rick &amp; Morty Explorer</a>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="hero" aria-labelledby="title">
+      <div>
+        <h1 id="title">Rick &amp; Morty <em>Explorer</em></h1>
+        <p>Исследуйте мультивселенную «Рика и Морти». Найдите персонажа и узнайте, откуда он родом и где его видели в последний раз.</p>
+      </div>
+      <div class="portal" aria-hidden="true"></div>
+    </section>
+    <section id="catalog" aria-labelledby="catalog-title">
+      <h2 id="catalog-title">Каталог персонажей</h2>
+      <form id="filters" aria-label="Фильтры персонажей">
+        <label class="search">
+          Имя
+          <input type="search" name="name" placeholder="Например, Rick" autocomplete="off">
+        </label>
+        <label>
+          Статус
+          <select name="status">
+            <option value="">Все</option>
+            <option value="alive">Жив</option>
+            <option value="dead">Мёртв</option>
+            <option value="unknown">Неизвестно</option>
+          </select>
+        </label>
+        <label>
+          Пол
+          <select name="gender">
+            <option value="">Все</option>
+            <option value="male">Мужской</option>
+            <option value="female">Женский</option>
+            <option value="genderless">Бесполый</option>
+            <option value="unknown">Неизвестно</option>
+          </select>
+        </label>
+        <label>
+          Вид
+          <input type="search" name="species" placeholder="Human">
+        </label>
+        <label>
+          Тип
+          <input type="search" name="type" placeholder="Parasite">
+        </label>
+        <button type="reset" class="reset">Сбросить</button>
+      </form>
+      <div class="results-head">
+        <h2 id="results-title" tabindex="-1">Персонажи</h2>
+        <p id="count" role="status"></p>
+      </div>
+      <div id="results" aria-labelledby="results-title">
+        <div id="notice" class="notice" hidden>
+          <h3 id="notice-title"></h3>
+          <p id="notice-text"></p>
+          <button id="notice-action" type="button">Повторить запрос</button>
+        </div>
+        <div id="grid" class="grid"></div>
+      </div>
+      <nav id="pagination" class="pagination" aria-label="Страницы каталога" hidden>
+        <button id="prev" type="button">Назад</button>
+        <span id="page"></span>
+        <button id="next" type="button">Вперёд</button>
+      </nav>
+    </section>
+  </main>
+  <template id="skeleton-template">
+    <div class="skeleton" aria-hidden="true"></div>
+    <div class="skeleton" aria-hidden="true"></div>
+    <div class="skeleton" aria-hidden="true"></div>
+    <div class="skeleton" aria-hidden="true"></div>
+  </template>
+  <dialog id="detail" aria-labelledby="detail-title">
+    <button id="close" type="button" autofocus>Закрыть</button>
+    <div id="detail-content"></div>
+  </dialog>
+</body>
+</html>
